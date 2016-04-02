@@ -3,7 +3,7 @@ from kivy.uix.widget import Widget
 import pyejdb
 from kivy.properties import StringProperty
 class Browser(Widget):
-    ludzie=StringProperty("")
+    people=StringProperty("")
 
     pass
 
@@ -14,10 +14,10 @@ class EjdbBrowser(App):
         db = pyejdb.EJDB("city", pyejdb.DEFAULT_OPEN_MODE)
         cursor = db.find("people")
         for entry in cursor:
-            browser.ludzie += "=======================\n"
+            browser.people += "=======================\n"
             for fields in entry.items():
-                browser.ludzie += ("{0}:{1}".format(fields[0], fields[1])) + "\n"
-        print(browser.ludzie)
+                browser.people += ("{0}:{1}".format(fields[0], fields[1])) + "\n"
+        print(browser.people)
 
         return browser
 
