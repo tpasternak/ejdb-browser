@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.factory import Factory
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.popup import Popup
 from kivy.uix.widget import Widget
 from kivy.properties import StringProperty, ObjectProperty
@@ -16,7 +17,7 @@ from kivy.uix.treeview import TreeViewLabel
 
 class Browser(Widget):
     people=StringProperty("")
-    layout = FloatLayout()
+    layout = GridLayout()
     def callback(treeview,a,b):
         with pyejdb.EJDB("city", pyejdb.DEFAULT_OPEN_MODE) as db:
             cursor = db.find("people")
@@ -29,6 +30,7 @@ class Browser(Widget):
 
             for name in items:
                 yield TreeViewLabel(text=name)
+    
 
     def callback1(instance):
         print('deunisc')
