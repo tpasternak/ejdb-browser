@@ -1,8 +1,9 @@
 #:kivy 1.9.1
 
 <Browser>
-    Label:
+    TreeView:
         font_size: 20
         center_x: root.width / 4
         top: root.top - 50
-        text: root.ludzie
+        width: 250
+        load_func:root.callback
