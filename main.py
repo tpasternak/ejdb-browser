@@ -8,9 +8,10 @@ from kivy.uix.treeview import TreeViewLabel
 
 class Browser(Widget):
     people=StringProperty("")
+    already_created = False
 
-    def callback(treeview,a,b):
-
+    def callback(self,treeview,a):
+        
         with pyejdb.EJDB("city", pyejdb.DEFAULT_OPEN_MODE) as db:
             cursor = db.find("people")
             items = []
@@ -20,8 +21,11 @@ class Browser(Widget):
                     entryString += fields[1] + " "
                 items.append(entryString)
 
-            for name in items:
-                yield TreeViewLabel(text=name)
+            if not self.already_created:
+                for name in items:
+                    yield TreeViewLabel(text=name)
+
+            self.already_created = True
 
     pass
 
