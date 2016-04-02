@@ -2,9 +2,19 @@
 
 <Browser>:
     StackLayout:
-        size: (60, 30)
+        size: (400, 30)
         pos: (0, 570)
+
+
         Button:
             text: "abbb"
             on_press: root.callback1()
             valign: 'middle'
+
+        TreeView:
+        	font_size: 20
+        	center_x: root.width / 4
+        	top: root.top - 50
+        	width: 250
+        	load_func:root.callback
+
