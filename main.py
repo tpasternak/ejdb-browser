@@ -1,5 +1,7 @@
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.popup import Popup
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
 from kivy.properties import StringProperty
@@ -11,13 +13,11 @@ import pyejdb
 
 
 class Browser(Widget):
-    people = StringProperty("")
-    layout = FloatLayout()
+    people=StringProperty("")
+    layout = GridLayout()
 
-    def button1(self):
-        print("Button 1 triggered")
-
-    def callback(treeview,a,b):
+    already_created = False	
+    def callback(self,treeview,a):
         with pyejdb.EJDB("city", pyejdb.DEFAULT_OPEN_MODE) as db:
             cursor = db.find("people")
             items = []
@@ -27,8 +27,11 @@ class Browser(Widget):
                     entryString += fields[1] + " "
                 items.append(entryString)
 
-            for name in items:
-                yield TreeViewLabel(text=name)
+            if not self.already_created:
+                for name in items:
+                    yield TreeViewLabel(text=name)
+
+            self.already_created = True
 
     def callback1(instance):
         print('deunisc')
