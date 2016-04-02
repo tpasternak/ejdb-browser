@@ -1,8 +1,10 @@
 #:kivy 1.9.1
 
-<Browser>
-    Label:
-        font_size: 20
-        center_x: root.width / 4
-        top: root.top - 50
-        text: root.ludzie
+<Browser>:
+    StackLayout:
+        size: (60, 30)
+        pos: (0, 570)
+        Button:
+            text: "abbb"
+            on_press: root.callback1()
+            valign: 'middle'

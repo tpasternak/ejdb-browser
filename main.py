@@ -1,12 +1,24 @@
 from kivy.app import App
+from kivy.factory import Factory
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.popup import Popup
 from kivy.uix.widget import Widget
+from kivy.properties import StringProperty, ObjectProperty
+from kivy.uix.button import Button
+from kivy.uix.filechooser import FileChooserListView
 import pyejdb
-from kivy.properties import StringProperty
+
+
+
 class Browser(Widget):
     ludzie=StringProperty("")
+    layout = FloatLayout()
+
+    def callback1(instance):
+        print('deunisc')
 
     pass
-
 
 class EjdbBrowser(App):
     def build(self):
