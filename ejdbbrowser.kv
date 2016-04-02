@@ -1,10 +1,33 @@
 #:kivy 1.9.1
 
-<Browser>
-    TreeView:
-        font_size: 20
-        center_x: root.width / 4
-        top: root.top - 50
-        width: 250
-        load_func:root.callback
-
+<Browser>:
+    GridLayout:
+        width:root.width
+        cols:2
+        rows:2
+        top:root.height-20
+        minimum_height:root.height
+        Button:
+            text: "abbb"
+            on_press: root.callback1()
+            valign: 'middle'
+            top: root.top
+            
+        Label:
+            text:"Editing Area"
+            top: root.height
+            font_size:20
+        TreeView:
+        	font_size: 20
+        	center_x: root.width / 2
+        	top: root.top - 50
+        	width: root.width
+        	load_func:root.callback
+        
+        Label:
+            valign:'middle'
+            top:root.top-50
+            width:400
+            center_x: root.width/4
+            text:"Edycja plikow"
+            font_size: 20
