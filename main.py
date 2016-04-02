@@ -7,7 +7,7 @@ from kivy.uix.treeview import TreeViewLabel
 
 
 class Browser(Widget):
-    ludzie=StringProperty("")
+    people=StringProperty("")
 
     def callback(treeview,a,b):
 
@@ -29,14 +29,6 @@ class Browser(Widget):
 class EjdbBrowser(App):
     def build(self):
         browser = Browser()
-#        db = pyejdb.EJDB("city", pyejdb.DEFAULT_OPEN_MODE)
-#        cursor = db.find("people")
-
-#        for entry in cursor:
-#            browser.ludzie += "=======================\n"
-#            for fields in entry.items():
-#                browser.ludzie += ("{0}:{1}".format(fields[0], fields[1])) + "\n"
-#        print(browser.ludzie)
 
         return browser
 
