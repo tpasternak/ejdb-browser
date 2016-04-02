@@ -1,20 +1,21 @@
 #:kivy 1.9.1
 
 <Browser>:
-    StackLayout:
-        size: (400, 30)
-        pos: (0, 570)
+    Button:
+        size:
+        text: "Nothing"
+        background_color: 1, 1, 1, 0.6
+        background_normal: ""
+
+    TreeView:
+        font_size: 20
+        center_x: root.width / 4
+        top: root.top - 50
+        width: 250
+        load_func:root.callback
 
 
-        Button:
-            text: "abbb"
-            on_press: root.callback1()
-            valign: 'middle'
-
-        TreeView:
-        	font_size: 20
-        	center_x: root.width / 4
-        	top: root.top - 50
-        	width: 250
-        	load_func:root.callback
-
+    Filechooser:
+        id: fc
+        FilechooserIconLayout
+        FilechooserListLayout

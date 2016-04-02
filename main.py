@@ -1,22 +1,22 @@
 from kivy.app import App
-from kivy.factory import Factory
-from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.popup import Popup
 from kivy.uix.widget import Widget
-from kivy.properties import StringProperty, ObjectProperty
 from kivy.uix.button import Button
-from kivy.uix.filechooser import FileChooserListView
-import pyejdb
-
 from kivy.properties import StringProperty
-
 from kivy.uix.treeview import TreeViewLabel
+from kivy.uix.filechooser import FileChooserController
+
+
+import pyejdb
 
 
 class Browser(Widget):
-    people=StringProperty("")
+    people = StringProperty("")
     layout = FloatLayout()
+
+    def button1(self):
+        print("Button 1 triggered")
+
     def callback(treeview,a,b):
         with pyejdb.EJDB("city", pyejdb.DEFAULT_OPEN_MODE) as db:
             cursor = db.find("people")
